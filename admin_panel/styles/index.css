@@ -1,0 +1,165 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+}
+section .left,
+section .right {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+section .left {
+  width: 30vw;
+  background-color: white;
+  justify-content: center;
+}
+section .left h1,
+section .left h2 {
+  color: rgb(0, 78, 100);
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 500;
+  padding: 1vw;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0;
+}
+section .left h1 {
+  font-size: 1.3vw;
+  margin-bottom: 0;
+}
+section .left h2 {
+  margin-top: 0;
+  font-size: 2vw;
+}
+section .right {
+  background-color: rgb(0, 78, 100);
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+section .right .panel {
+  background-color: #003a4b;
+  width: 80%;
+  min-height: 50vh;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+section .right .panel form {
+  padding: 1.5vw;
+  box-sizing: border-box;
+}
+section .right .panel form .error {
+  color: #e60000;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+}
+section .right .panel form .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+section .right .panel form .row label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  color: white;
+}
+section .right .panel form .row label span {
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section .right .panel form .row label span:nth-of-type(1) {
+  font-size: 2.1vw;
+}
+section .right .panel form .row label span:nth-of-type(2) {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.45vw;
+}
+section .right .panel form .row input {
+  border: 0;
+  outline: unset;
+}
+section .right .panel form .row input[type=text], section .right .panel form .row input[type=password] {
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+  background-color: rgb(0, 78, 100);
+  margin-left: 1vw;
+  margin-bottom: 1.5vw;
+  width: 100%;
+  font-size: 1.5vw;
+  color: white;
+}
+section .right .panel form .row #show_hide_pass {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2.5vw;
+  color: white;
+  font-weight: 300;
+  cursor: pointer;
+}
+section .right .panel form .row:last-of-type {
+  justify-content: space-between;
+}
+section .right .panel form .row #submit_btn {
+  margin-left: 1vw;
+  background-color: white;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+}
+section .right .panel form .row #submit_btn:hover {
+  background-color: rgb(42, 172, 142);
+}
+section .right .panel form .row #submit_btn:hover input,
+section .right .panel form .row #submit_btn:hover button {
+  color: white;
+}
+section .right .panel form .row #submit_btn input,
+section .right .panel form .row #submit_btn button {
+  cursor: pointer;
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  color: rgb(0, 78, 100);
+  box-sizing: border-box;
+  background-color: transparent;
+}
+section .right .panel form .row #submit_btn input {
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+}
+section .right .panel form .row #submit_btn button {
+  border: 0;
+  outline: unset;
+}
+section .right .panel form .row #forget_pass_btn {
+  background-color: gold;
+  color: rgb(34, 9, 1);
+  margin-right: 1vw;
+  font-size: 1.5vw;
+  font-family: "Oswald", sans-serif;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none;
+}/*# sourceMappingURL=index.css.map */

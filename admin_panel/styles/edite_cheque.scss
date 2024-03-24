@@ -1,0 +1,249 @@
+@import "utilities/variables.scss";
+
+button {
+  cursor: pointer;
+}
+main {
+  position: relative;
+}
+section {
+  &:nth-of-type(1) {
+    //  border: 2px solid red;
+
+    .right {
+      grid-area: side2;
+      display: flex;
+      flex-direction: column;
+      h1,
+      h2 {
+        // margin-left: 0.5vw;
+        padding: 1vw 2vw;
+        box-sizing: border-box;
+        font-family: $font1;
+        color: $honydew;
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 2vw;
+        margin-bottom: 0vw;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1.5vw;
+        margin-top: 0;
+        border-bottom: 3px solid $honydew;
+      }
+
+      form {
+        //  border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        .error,
+        .msg {
+          font-family: $font2;
+          padding: 0 1vw;
+          box-sizing: border-box;
+        }
+        .error {
+          color: lighten($red, 15);
+          text-transform: uppercase;
+          width: 100%;
+        }
+        .msg {
+          color: lighten($green, 10);
+        }
+        #chosen_image_id {
+          display: none;
+        }
+        .data_input {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // border: 2px solid blue;
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          .row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+          }
+          label,
+          input,
+          select {
+            font-family: $font2;
+            font-size: 1.2vw;
+          }
+          label {
+            margin-top: 0.5vw;
+            margin-bottom: 0.3vw;
+            width: fit-content;
+            color: $honydew;
+          }
+          select,
+          input {
+            width: 100%;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+          }
+        }
+
+        input[type="submit"] {
+          background-color: lighten($darkgreen, 25);
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          margin-left: 1vw;
+          width: fit-content;
+          margin-top: 1vw;
+          cursor: pointer;
+          font-family: $font2;
+          font-size: 1.2vw;
+          color: darken($darkgreen, 5);
+          text-transform: uppercase;
+          &:hover {
+            background-color: $green;
+            color: white;
+          }
+        }
+      }
+    }
+
+    /******************
+    Start
+    ******************/
+
+    /*Cheque Output and Image*/
+
+    .panel {
+      grid-area: cheque;
+      width: 100%;
+      min-height: 100vh;
+      //  border: 2px solid green;
+      background-color: $honydew;
+      grid-area: cheque;
+      //border: 4px solid red;
+      width: 100%;
+      height: fit-content;
+      //margin-left: 3%;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-items: center;
+      #top_controls,
+      #data_output,
+      #bottom_controls {
+        margin: 1vw 0 1vw 3vw;
+      }
+      #top_controls {
+        display: grid;
+        grid-template-columns: auto 0.8fr auto;
+        align-items: center;
+        width: 90%;
+        height: fit-content;
+
+        // border: 2px solid blue;
+        padding: 0.5vw;
+        box-sizing: border-box;
+        h1 {
+          font-family: $font1;
+          font-weight: 300;
+          font-size: 2.5vw;
+          color: $darkgreen;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // border: 1px solid red;
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+        select {
+          padding: 0.5vw;
+          box-sizing: border-box;
+          font-size: 1.5vw;
+          font-family: $font2;
+          height: fit-content;
+          background-color: $darkgreen;
+          color: $honydew;
+          border: 0;
+          outline: unset;
+          cursor: pointer;
+          // border-radius: 10px;
+        }
+      }
+      #data_output {
+        //  border: 2px solid blue;
+        width: 16.5cm;
+        height: 7cm;
+        margin-top: 0;
+        position: relative;
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        align-content: flex-start;
+
+        .warapper_data_cell {
+          width: 16.5cm;
+          height: 7cm;
+          z-index: 8;
+          position: relative;
+        }
+        .data_cell {
+          width: fit-content;
+          font-size: 16px;
+          font-family: $font2;
+          margin: 0;
+          position: absolute;
+          font-family: sans-serif;
+          overflow: hidden;
+          z-index: 20;
+          &:nth-of-type(1) {
+            transform: translate(32vw, 5.5vh);
+          }
+          &:nth-of-type(2) {
+            transform: translate(8vw, 10.5vh);
+          }
+          &:nth-of-type(3) {
+            transform: translate(32vw, 16vh);
+          }
+          &:nth-of-type(4) {
+            transform: translate(6vw, 16vh);
+            max-width: 8cm;
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          object-fit: fill;
+          z-index: 7;
+        }
+      }
+
+      #bottom_controls {
+        padding: 0.5vw;
+        box-sizing: border-box;
+        // border: 2px solid blue;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0;
+        button {
+          padding: 0.5vw 2vw;
+          border: 0;
+          outline: unset;
+          font-family: $font2;
+          font-size: 1.5vw;
+          box-shadow: 0 0 2px $black;
+        }
+        #reset_data {
+          background-color: $red;
+          color: $honydew;
+        }
+        #print_cheque {
+          background-color: $green;
+          color: $honydew;
+        }
+      }
+    }
+  }
+}

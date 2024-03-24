@@ -1,0 +1,97 @@
+@import "utilities/variables.scss";
+
+button {
+  cursor: pointer;
+}
+main {
+  position: relative;
+}
+section {
+  &:nth-of-type(1) {
+    //  border: 2px solid red;
+    min-height: 100vh;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr;
+    grid-template-areas:
+      "cheque cheque side2"
+      "cheque cheque side2"
+      "cheque cheque side2"
+      "cheque cheque side2";
+
+    aside {
+      width: 100%;
+      height: 100%;
+      //  border: 2px solid black;
+      background-color: $darkgreen;
+    }
+    .left {
+      min-width: fit-content !important;
+      //opacity: 0.9;
+
+      width: 3%; //3%-15%
+      position: absolute;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      z-index: 30;
+      box-shadow: 3px 0 15px darken($darkgreen, 10);
+
+      button {
+        font-size: 1.5vw;
+        width: fit-content;
+        margin-top: 0.5vw;
+        margin-bottom: 0.5vw;
+        background-color: $black;
+        color: $honydew;
+        outline: unset;
+        border: 0;
+      }
+      .items {
+        //    border: 2px solid red;
+        width: 100%;
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr;
+        .item {
+          //     border: 2px solid blue;
+          min-width: fit-content !important;
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          color: $honydew;
+          height: fit-content;
+          padding: 1vw;
+          box-sizing: border-box;
+          &:hover {
+            background-color: $black;
+          }
+
+          .sidemenu_icon {
+            font-size: 1.5vw;
+            margin-left: 0.3vw;
+          }
+          .text {
+            margin-left: 0.5vw;
+            font-family: $font2;
+            text-transform: uppercase;
+            font-size: 1.2vw;
+            display: none;
+            opacity: 0;
+          }
+        }
+        #logout_btn {
+          position: absolute;
+          bottom: 1vw;
+          width: 100%;
+          &:hover {
+            background-color: $red;
+          }
+        }
+      }
+    }
+  }
+}

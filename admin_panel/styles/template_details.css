@@ -1,0 +1,324 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  position: relative;
+}
+
+section:nth-of-type(1) {
+  /******************
+  Start
+  ******************/
+  /*Cheque Output and Image*/
+}
+section:nth-of-type(1) .right {
+  grid-area: side2;
+  display: flex;
+  flex-direction: column;
+}
+section:nth-of-type(1) .right h1,
+section:nth-of-type(1) .right h2 {
+  padding: 1vw 2vw;
+  box-sizing: border-box;
+  font-family: "Protest Strike", sans-serif;
+  color: rgb(239, 248, 226);
+  font-weight: 300;
+}
+section:nth-of-type(1) .right h1 {
+  font-size: 2vw;
+  margin-bottom: 0vw;
+  margin-top: 0;
+}
+section:nth-of-type(1) .right h2 {
+  font-size: 1.5vw;
+  margin-top: 0;
+  border-bottom: 3px solid rgb(239, 248, 226);
+}
+section:nth-of-type(1) .right form {
+  display: flex;
+  flex-direction: column;
+}
+section:nth-of-type(1) .right form .error,
+section:nth-of-type(1) .right form .msg {
+  font-family: "Oswald", sans-serif;
+  padding: 0 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .right form .error {
+  color: #eb3489;
+  text-transform: uppercase;
+  width: 100%;
+}
+section:nth-of-type(1) .right form .msg {
+  color: #3acfad;
+}
+section:nth-of-type(1) .right form #chosen_image_id {
+  display: none;
+}
+section:nth-of-type(1) .right form .data_input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .right form .data_input .row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+}
+section:nth-of-type(1) .right form .data_input label,
+section:nth-of-type(1) .right form .data_input input,
+section:nth-of-type(1) .right form .data_input select {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+}
+section:nth-of-type(1) .right form .data_input label {
+  margin-top: 0.5vw;
+  margin-bottom: 0.3vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: rgb(239, 248, 226);
+}
+section:nth-of-type(1) .right form .data_input select,
+section:nth-of-type(1) .right form .data_input input {
+  width: 96%;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .right form input[type=submit],
+section:nth-of-type(1) .right form #reset {
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+  margin-left: 1vw;
+  width: 90%;
+  margin-top: 1vw;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+  text-transform: uppercase;
+}
+section:nth-of-type(1) .right form input[type=submit] {
+  background-color: #00b1e4;
+  color: #003a4b;
+}
+section:nth-of-type(1) .right form input[type=submit]:hover {
+  background-color: rgb(42, 172, 142);
+  color: white;
+}
+section:nth-of-type(1) .right form #reset {
+  background-color: yellow;
+  color: black;
+  border: 0;
+  outline: unset;
+}
+section:nth-of-type(1) .right form #reset:hover {
+  background-color: #cccc00;
+}
+section:nth-of-type(1) .panel {
+  width: 100%;
+  min-height: 100vh;
+  border: 2px solid green;
+  background-color: rgb(239, 248, 226);
+  grid-area: cheque;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  justify-items: flex-end;
+}
+section:nth-of-type(1) .panel #top_controls,
+section:nth-of-type(1) .panel #data_output {
+  margin: 1vw 0 1vw 1vw;
+}
+section:nth-of-type(1) .panel #top_controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  width: 90%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #top_controls h1 {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 300;
+  font-size: 2.5vw;
+  color: rgb(0, 78, 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+section:nth-of-type(1) .panel #top_controls select {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  font-size: 1.5vw;
+  font-family: "Oswald", sans-serif;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: rgb(0, 78, 100);
+  color: rgb(239, 248, 226);
+  border: 0;
+  outline: unset;
+  cursor: pointer;
+}
+section:nth-of-type(1) .panel #add_cheque {
+  width: 96%;
+  padding: 1vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1vw;
+}
+section:nth-of-type(1) .panel #add_cheque .error,
+section:nth-of-type(1) .panel #add_cheque .msg {
+  font-family: "Oswald", sans-serif;
+  padding: 0 1vw;
+  font-size: 1.5vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #add_cheque .error {
+  color: #eb3489;
+  text-transform: uppercase;
+  width: 100%;
+}
+section:nth-of-type(1) .panel #add_cheque .msg {
+  color: rgb(42, 172, 142);
+  width: 100%;
+}
+section:nth-of-type(1) .panel #add_cheque form {
+  width: 90%;
+}
+section:nth-of-type(1) .panel #add_cheque form input {
+  font-size: 1.2vw;
+  font-family: "Oswald", sans-serif;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #add_cheque form input[type=file] {
+  padding: 0.45vw 1vw;
+  width: 80%;
+  border: 2px solid rgb(0, 78, 100);
+  color: #007697;
+}
+section:nth-of-type(1) .panel #add_cheque form input[type=submit] {
+  background-color: #007697;
+  border: 2px solid #007697;
+  color: rgb(239, 248, 226);
+  cursor: pointer;
+}
+section:nth-of-type(1) .panel #add_cheque form input[type=submit]:hover {
+  background-color: rgb(42, 172, 142);
+  border: 2px solid rgb(42, 172, 142);
+}
+section:nth-of-type(1) .panel #data_output {
+  width: 80%;
+  display: grid;
+  margin-top: 0;
+  padding: 1vw;
+  box-sizing: border-box;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1vw;
+  min-height: 70vh;
+  margin-right: 3.5vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-content: flex-start;
+}
+section:nth-of-type(1) .panel #data_output .item {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: -moz-fit-content;
+  height: fit-content;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  background-color: rgb(0, 78, 100);
+}
+section:nth-of-type(1) .panel #data_output .item a {
+  text-decoration: none;
+  padding: 0.2vw;
+  box-sizing: border-box;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: rgb(239, 248, 226);
+  margin: 0.3vw;
+  background-color: rgb(191, 19, 99);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+section:nth-of-type(1) .panel #data_output .item a span {
+  font-size: 1.4vw;
+}
+section:nth-of-type(1) .panel #data_output .item a :hover {
+  background-color: #e81d7b;
+}
+section:nth-of-type(1) .panel #data_output .item .template_date {
+  width: -moz-fit-content;
+  width: fit-content;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 78, 100, 0.7);
+  padding: 0.3vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #data_output img {
+  width: 100%;
+  padding: 0.2vw;
+  border-radius: 5px;
+  box-sizing: border-box;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+section:nth-of-type(1) .panel #bottom_controls {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0;
+}
+section:nth-of-type(1) .panel #bottom_controls button {
+  padding: 0.5vw 2vw;
+  border: 0;
+  outline: unset;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5vw;
+  box-shadow: 0 0 2px rgb(34, 9, 1);
+}
+section:nth-of-type(1) .panel #bottom_controls #reset_data {
+  background-color: rgb(191, 19, 99);
+  color: rgb(239, 248, 226);
+}
+section:nth-of-type(1) .panel #bottom_controls #print_cheque {
+  background-color: rgb(42, 172, 142);
+  color: rgb(239, 248, 226);
+}/*# sourceMappingURL=template_details.css.map */

@@ -1,0 +1,100 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  position: relative;
+}
+
+section:nth-of-type(1) {
+  min-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  grid-template-areas: "cheque cheque side2" "cheque cheque side2" "cheque cheque side2" "cheque cheque side2";
+}
+section:nth-of-type(1) aside {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 78, 100);
+}
+section:nth-of-type(1) .left {
+  min-width: -moz-fit-content !important;
+  min-width: fit-content !important;
+  width: 3%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 30;
+  box-shadow: 3px 0 15px #002631;
+}
+section:nth-of-type(1) .left button {
+  font-size: 1.5vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  background-color: rgb(34, 9, 1);
+  color: rgb(239, 248, 226);
+  outline: unset;
+  border: 0;
+}
+section:nth-of-type(1) .left .items {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+section:nth-of-type(1) .left .items .item {
+  min-width: -moz-fit-content !important;
+  min-width: fit-content !important;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(239, 248, 226);
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .left .items .item:hover {
+  background-color: rgb(34, 9, 1);
+}
+section:nth-of-type(1) .left .items .item .sidemenu_icon {
+  font-size: 1.5vw;
+  margin-left: 0.3vw;
+}
+section:nth-of-type(1) .left .items .item .text {
+  margin-left: 0.5vw;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  display: none;
+  opacity: 0;
+}
+section:nth-of-type(1) .left .items #logout_btn {
+  position: absolute;
+  bottom: 1vw;
+  width: 100%;
+}
+section:nth-of-type(1) .left .items #logout_btn:hover {
+  background-color: rgb(191, 19, 99);
+}/*# sourceMappingURL=side_menu.css.map */
