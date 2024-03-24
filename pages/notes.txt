@@ -1,0 +1,99 @@
+the below are structre for the cheques images
+using the below structure will make it esier if we develop client panel 
+where they can manage multiple users
+and reduce the chance of name conflict when uploading
+clients/[client_id]/users/[user_id]
+
+############################################
+Simplifed
+
+clients/[client_id]
+
+input_cheque_date
+input_recipient_name
+input_currency
+input_amount_number
+input_amount_words
+
+
+9.5
+7
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+reporting
+https://carbone.io/
+https://hybiscus.dev/
+https://doc.cuba-platform.com/reporting-latest/index.html
+
+
+
+
+
+                    <div class="data_input">
+                        <label for="#"> Amount & Currency </label>
+                        <div class="row">
+                            <select id="input_currency" name="input_currency">
+                                <?php
+                                $sql = "SELECT * FROM list1_cheque_currancy";
+                                $statment = $db->pdo->prepare($sql);
+                                $statment->execute();
+                                $data = $statment->fetchAll();
+                                foreach ($data as $record) {
+                                    $currancy_id = $record["cheque_currency_id"];
+                                    $currancy = $record["cheque_currency"];
+                                    echo '<option value=' . $currancy_id . '>' . $currancy . '</option>';
+
+                                }
+
+                                ?>
+
+                            </select>
+                            <input min="1" type="number" id="input_amount_number" name="input_amount_number"
+                                placeholder="Please Enter Amount"
+                                oninput="write_value('input_amount_number','output_the_amount_numbers')" />
+                        </div>
+                    </div>
+
+
+
+
+111111111111111111111111111
+        #data_output{
+            border:9px solid red;
+
+        }
+        #warapper_data_cell{
+            margin-left:40vw;
+            margin-top:24vw;
+   
+            width: 16.5cm;
+            height: 7cm;
+            border:2px solid blue;
+
+        }
+        .data_cell {
+            font-size: 16px;
+            font-family: sans-serif;
+            border:2px solid blue;
+            width:fit-content;
+            margin:1vw;
+
+        }
+        #output_cheque_date {
+          width:fit-content;
+        }
+
+        #output_the_recipent_name {
+            width:fit-content;
+
+        }
+        #output_the_amount_numbers {
+     
+            max-width: 8rem;
+        }
+
+        #output_the_amount_words {
+
+            max-width: 18.5rem;
+            margin-top:0.5cm;
+        }

@@ -1,0 +1,167 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(239, 248, 226);
+}
+
+button {
+  cursor: pointer;
+}
+
+main {
+  position: relative;
+}
+
+section:nth-of-type(1) {
+  /******************
+    Start
+    ******************/
+  /*Cheque Output and Image*/
+}
+section:nth-of-type(1) .panel {
+  grid-area: cheque;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(239, 248, 226);
+  grid-area: cheque;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+  justify-items: flex-end;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+section:nth-of-type(1) .panel #top_controls,
+section:nth-of-type(1) .panel #data_output,
+section:nth-of-type(1) .panel #bottom_controls {
+  margin: 1vw 0 1vw 3.5vw;
+}
+section:nth-of-type(1) .panel #top_controls {
+  display: grid;
+  grid-template-columns: auto 0.8fr auto;
+  align-items: center;
+  width: 90%;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 2px solid blue;
+  padding: 0.5vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #top_controls h1 {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 300;
+  font-size: 2.5vw;
+  color: rgb(0, 78, 100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+section:nth-of-type(1) .panel #top_controls select {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  font-size: 1.5vw;
+  font-family: "Oswald", sans-serif;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: rgb(0, 78, 100);
+  color: rgb(239, 248, 226);
+  border: 0;
+  outline: unset;
+  cursor: pointer;
+}
+section:nth-of-type(1) .panel #data_output {
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 0;
+  width: 17.5cm;
+  height: 8cm;
+  margin-left: auto;
+  margin-right: auto;
+}
+section:nth-of-type(1) .panel #data_output img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+  display: none;
+  position: absolute;
+  z-index: 7;
+}
+section:nth-of-type(1) .panel #data_output .warapper_data_cell {
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+section:nth-of-type(1) .panel #data_output .data_cell {
+  min-width: 50px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  position: absolute;
+  font-size: 1vw;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  z-index: 20;
+}
+section:nth-of-type(1) .panel #data_output #output_cheque_date {
+  right: 1.5cm;
+  top: 1.3cm;
+}
+section:nth-of-type(1) .panel #data_output #output_the_recipent_name {
+  top: 2.2cm;
+  left: 2.5cm;
+  width: 10cm !important;
+}
+section:nth-of-type(1) .panel #data_output #output_the_amount_numbers {
+  right: 0.8cm;
+  top: 3.3cm;
+  width: 3.5cm;
+}
+section:nth-of-type(1) .panel #data_output #output_the_amount_words {
+  top: 3.2cm;
+  left: 1.5cm;
+  width: 8cm;
+}
+section:nth-of-type(1) .panel #bottom_controls {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0;
+}
+section:nth-of-type(1) .panel #bottom_controls button {
+  padding: 0.5vw 2vw;
+  border: 0;
+  outline: unset;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5vw;
+  box-shadow: 0 0 2px rgb(34, 9, 1);
+}
+section:nth-of-type(1) .panel #bottom_controls #reset_data {
+  background-color: rgb(191, 19, 99);
+  color: rgb(239, 248, 226);
+}
+section:nth-of-type(1) .panel #bottom_controls #print_cheque {
+  background-color: rgb(42, 172, 142);
+  color: rgb(239, 248, 226);
+}/*# sourceMappingURL=profile.css.map */

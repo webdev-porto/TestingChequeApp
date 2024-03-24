@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Welcome to tst page</h1>
+    <input type="number" id="mynumber" oninput="calculateNumberToWords()" />
+    <button onclick="calculateNumberToWords()">calculate</button>
+    <!-- <script>
+      function numberToWords(number) {
+        // Define arrays for words representation
+        const units = [
+          "",
+          "One",
+          "Two",
+          "Three",
+          "Four",
+          "Five",
+          "Six",
+          "Seven",
+          "Eight",
+          "Nine",
+        ];
+        const teens = [
+          "",
+          "Eleven",
+          "Twelve",
+          "Thirteen",
+          "Fourteen",
+          "Fifteen",
+          "Sixteen",
+          "Seventeen",
+          "Eighteen",
+          "Nineteen",
+        ];
+        const tens = [
+          "",
+          "Ten",
+          "Twenty",
+          "Thirty",
+          "Forty",
+          "Fifty",
+          "Sixty",
+          "Seventy",
+          "Eighty",
+          "Ninety",
+        ];
+
+        // Function to convert a number less than 1000 to words
+        function convertLessThanOneThousand(number) {
+          if (number < 10) {
+            return units[number];
+          } else if (number < 20) {
+            return teens[number - 10];
+          } else if (number < 100) {
+            return tens[Math.floor(number / 10)] + " " + units[number % 10];
+          } else {
+            return (
+              units[Math.floor(number / 100)] +
+              " Hundred " +
+              convertLessThanOneThousand(number % 100)
+            );
+          }
+        }
+
+        // Function to convert a number to words
+        function convert(number) {
+          if (number === 0) {
+            return "Zero";
+          } else {
+            let result = "";
+
+            // Handle billions, millions, thousands
+            if (Math.floor(number / 1000000000) > 0) {
+              result +=
+                convertLessThanOneThousand(Math.floor(number / 1000000000)) +
+                " Billion ";
+              number %= 1000000000;
+            }
+            if (Math.floor(number / 1000000) > 0) {
+              result +=
+                convertLessThanOneThousand(Math.floor(number / 1000000)) +
+                " Million ";
+              number %= 1000000;
+            }
+            if (Math.floor(number / 1000) > 0) {
+              result +=
+                convertLessThanOneThousand(Math.floor(number / 1000)) +
+                " Thousand ";
+              number %= 1000;
+            }
+
+            // Convert the remaining number less than 1000
+            result += convertLessThanOneThousand(number);
+
+            return result.trim(); // Trim any extra spaces at the end
+          }
+        }
+
+        // Call the convert function with the provided number
+        return convert(number);
+      }
+
+      // Example usage:
+      function calculateNumberToWords() {
+        let mynumber = document.getElementById("mynumber").value;
+        // const number = 123456789;
+        const words = numberToWords(mynumber);
+        console.log(`${mynumber} in words: ${words}`);
+      }
+    </script>
+    -->
+    <script>
+      function calculateNumberToWords() {
+        amount = document.getElementById("mynumber").value;
+        const units = [
+          "",
+          "One",
+          "Two",
+          "Three",
+          "Four",
+          "Five",
+          "Six",
+          "Seven",
+          "Eight",
+          "Nine",
+        ];
+        const teens = [
+          "",
+          "Eleven",
+          "Twelve",
+          "Thirteen",
+          "Fourteen",
+          "Fifteen",
+          "Sixteen",
+          "Seventeen",
+          "Eighteen",
+          "Nineteen",
+        ];
+        const tens = [
+          "",
+          "Ten",
+          "Twenty",
+          "Thirty",
+          "Forty",
+          "Fifty",
+          "Sixty",
+          "Seventy",
+          "Eighty",
+          "Ninety",
+        ];
+        const scales = ["", "Thousand", "Million", "Billion"];
+
+        function toWords(num) {
+          if (num === 0) return "Zero";
+          let words = "";
+          for (let i = 0; i < scales.length; i++) {
+            if (num % 1000 !== 0) {
+              words = `${parseHundreds(num % 1000)} ${scales[i]} ${words}`;
+            }
+            num = Math.floor(num / 1000);
+          }
+          return words.trim();
+        }
+
+        function parseHundreds(num) {
+          let words = "";
+          const hundreds = Math.floor(num / 100);
+          const tensUnits = num % 100;
+          if (hundreds !== 0) {
+            words += `${units[hundreds]} Hundred `;
+          }
+          if (tensUnits !== 0) {
+            if (tensUnits < 10) {
+              words += `${units[tensUnits]} `;
+            } else if (tensUnits < 20) {
+              words += `${teens[tensUnits - 10]} `;
+            } else {
+              words += `${tens[Math.floor(tensUnits / 10)]} ${
+                units[tensUnits % 10]
+              } `;
+            }
+          }
+          return words.trim();
+        }
+
+        // Split amount into integer and fractional parts
+        const parts = amount.toString().split(".");
+        let result = toWords(parseInt(parts[0])) + " dollars";
+
+        if (parts.length === 2) {
+          // Deal with fractional part
+          const cents = parseInt(parts[1]);
+          let centsWords = "";
+          if (cents !== 0) {
+            if (cents < 10) {
+              centsWords = `${units[cents]} cents`;
+            } else if (cents < 20) {
+              centsWords = `${teens[cents - 10]} cents`;
+            } else {
+              centsWords = `${tens[Math.floor(cents / 10)]} ${
+                units[cents % 10]
+              } cents`;
+            }
+          }
+          result += ` and ${centsWords}`;
+        }
+
+        console.log(result);
+
+        //return result;
+      }
+
+      // Example usage:
+      //  console.log(numberToMoneyWords(123456789.56)); // Output: One Hundred Twenty Three Million Four Hundred Fifty Six Thousand Seven Hundred Eighty Nine dollars and Fifty Six cents
+    </script>
+  </body>
+</html>

@@ -1,0 +1,519 @@
+@import "utilities/variables.scss";
+
+.error {
+  font-family: $font2;
+  color: $red;
+  text-transform: uppercase;
+  width: 100%;
+}
+section {
+  &:nth-of-type(1) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.6fr;
+    margin-bottom: 30vh;
+    grid-template-areas:
+      "panel panel side1"
+      "panel panel side1"
+      "panel panel side1"
+      "panel panel side1";
+    .panel {
+      //border: 4px solid red;
+      // width: 100%;
+      grid-area: panel;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      #add_bank {
+        width: 96%;
+        padding: 1vw;
+        box-sizing: border-box;
+        // border: 2px solid red;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 1vw;
+        form {
+          width: 90%;
+          input {
+            font-size: 1.2vw;
+            font-family: $font2;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+            &[type="file"] {
+              padding: 0.45vw 1vw;
+
+              width: 80%;
+              border: 2px solid $darkgreen;
+              color: lighten($darkgreen, 10);
+              // color: transparent;
+            }
+            &[type="submit"] {
+              background-color: lighten($darkgreen, 10);
+              border: 2px solid lighten($darkgreen, 10);
+
+              color: $honydew;
+              cursor: pointer;
+              &:hover {
+                background-color: $green;
+                border: 2px solid $green;
+              }
+            }
+          }
+        }
+      }
+      #add_bank {
+        form {
+          input {
+            font-size: 1.2vw;
+            font-family: $font2;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+            &[type="text"] {
+              width: 80%;
+              border: 2px solid $darkgreen;
+              color: lighten($darkgreen, 10);
+            }
+          }
+        }
+      }
+
+      #data_error {
+        // border: 9px solid black;
+        font-size: 1.2vw;
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 1vw;
+      }
+      #datagrid {
+        //border: 2px solid blue;
+        width: 96%;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 1vw;
+        box-sizing: border-box;
+
+        table {
+          border-collapse: collapse;
+          border: 2px solid $darkgreen;
+
+          tr {
+            // height: fit-content;
+            border: 2px solid $darkgreen;
+
+            th,
+            td {
+              text-align: right;
+              padding: 1vw;
+              box-sizing: border-box;
+            }
+            td {
+              text-align: right;
+              border: 2px solid $darkgreen;
+
+              //   width: 100%;
+              //  max-width: fit-content;
+              //
+
+              font-family: $font2;
+              font-size: 1.2vw;
+            }
+            th {
+              font-family: $font1;
+              font-weight: 300;
+              color: $darkgreen;
+              font-size: 1.5vw;
+            }
+
+            .controls {
+              width: 100%;
+              //  height: max-content;
+              border: 0;
+              //  border: 1px solid red;
+              // width: fit-content;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              align-items: center;
+              margin-top: 1vw;
+              margin-bottom: 1vw;
+
+              padding: unset;
+
+              button,
+              a {
+                font-size: 1.2vw;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: fit-content;
+                margin-right: 1vw;
+                padding: 0.5vw;
+                box-sizing: border-box;
+                margin-bottom: 0;
+                cursor: pointer;
+              }
+              a {
+                text-decoration: none;
+                color: $honydew;
+                background-color: $darkgreen;
+              }
+              .view,
+              .edite,
+              .delete {
+                border: 0;
+                color: $honydew;
+              }
+              .edite {
+                background-color: $darkgreen;
+              }
+              .delete {
+                background-color: $red;
+              }
+              .view {
+                background-color: $black;
+              }
+            }
+            .file_link {
+              img {
+                //   border: 1px solid red;
+                width: 4vw;
+              }
+            }
+          }
+        }
+      }
+    }
+    .right {
+      grid-area: side1;
+      display: flex;
+      flex-direction: column;
+      form {
+        //border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        .data_input {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // border: 2px solid blue;
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          .row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+          }
+          label,
+          input,
+          select {
+            font-family: $font2;
+            font-size: 1.2vw;
+          }
+          label {
+            margin-top: 0.5vw;
+            margin-bottom: 0.3vw;
+            width: fit-content;
+            color: $honydew;
+          }
+          select,
+          input {
+            width: 100%;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+          }
+        }
+
+        input[type="submit"] {
+          width: 90%;
+          background-color: lighten($darkgreen, 25);
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          margin-left: 1vw;
+          margin-top: 1vw;
+          cursor: pointer;
+          font-family: $font2;
+          font-size: 1.2vw;
+          color: darken($darkgreen, 5);
+          text-transform: uppercase;
+          border: 0;
+          outline: unset;
+          &:hover {
+            background-color: $green;
+            color: white;
+          }
+        }
+        #reset {
+          background-color: yellow;
+          color: black;
+          border: 0;
+          outline: unset;
+          &:hover {
+            background-color: darken(yellow, 10);
+          }
+        }
+      }
+    }
+  }
+}
+
+.right {
+  #upload_check_btn {
+    font-family: $font2;
+    text-decoration: none;
+    background-color: $honydew;
+    color: $darkgreen;
+    width: fit-content;
+    padding: 0.5vw;
+    box-sizing: border-box;
+    margin: 1vw;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    border: 0;
+    outline: unset;
+    &:hover {
+      background-color: $black;
+      color: $honydew;
+    }
+  }
+  > h1 {
+    font-family: $font1;
+    font-size: 1.5vw;
+    padding: 1vw;
+    box-sizing: border-box;
+    color: $honydew;
+    font-weight: 500;
+    margin-top: 0;
+    border-bottom: 3px solid $honydew;
+    border-top: 3px solid $honydew;
+  }
+}
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($black, $alpha: 0.6);
+  border: 2px solid black;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  .warrning_messge,
+  .edite_messge {
+    margin-top: 2vw;
+    min-width: 30vw;
+    min-height: 30vw;
+    max-height: 80vh;
+
+    background-color: $honydew;
+    display: flex;
+    flex-direction: column;
+    .hide {
+      display: none;
+    }
+
+    .update_data {
+      width: 80%;
+      overflow: hidden;
+
+      font-family: $font2;
+
+      padding: 0.5vw;
+      box-sizing: border-box;
+      background-color: $darkgreen;
+      color: $honydew;
+      font-size: 1.2vw;
+      margin: 1vw;
+      border: 0;
+      outline: unset;
+    }
+    input[type="submit"] {
+      width: fit-content;
+      font-family: $font2;
+      font-size: 1.3vw;
+      background-color: $green;
+      color: $honydew;
+      margin: 1vw;
+      border: 0;
+      padding: 0.5vw 1vw;
+      box-sizing: border-box;
+      outline: unset;
+      cursor: pointer;
+    }
+    button {
+      padding: 1vw;
+      box-sizing: border-box;
+      background-color: $black;
+      color: $honydew;
+      border: 0;
+      outline: unset;
+      &:hover {
+        background-color: $green;
+      }
+    }
+  }
+  .warrning_messge {
+    h1 {
+      font-family: $font1;
+      font-size: 1.3vw;
+      padding: 0.5vw;
+      box-sizing: border-box;
+      width: 90%;
+      font-weight: 500;
+      color: $darkgreen;
+    }
+    ul {
+      list-style: square;
+      li {
+        padding: 0.5vw;
+        box-sizing: border-box;
+        font-family: $font2;
+        font-size: 1.2vw;
+        color: $red;
+      }
+    }
+    a {
+      text-decoration: none;
+      padding: 1vw;
+      box-sizing: border-box;
+      background-color: $red;
+      color: $honydew;
+      width: fit-content;
+      font-family: $font2;
+      text-transform: uppercase;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 3vw;
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}
+
+.right {
+  #bank_row {
+    //border: 2px solid red;
+    height: fit-content;
+  }
+}
+/*
+@media only screen and (max-width: 750px) {
+  section {
+    &:nth-of-type(1) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "side1 side1"
+        "panel panel"
+        "panel panel"
+        "panel panel";
+
+      .panel {
+        #data_error {
+          font-size: 3vw;
+        }
+        #datagrid {
+          width: 100%;
+
+          table {
+            tr {
+              td {
+                font-size: 2.2vw;
+              }
+              th {
+                font-size: 2.5vw;
+              }
+              .controls {
+                button,
+                a {
+                  font-size: 2.5vw;
+                  padding: 1vw;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        //border: 2px solid red;
+        display: grid;
+        grid-template-columns: 1fr;
+        h1 {
+          display: flex;
+          align-items: center;
+          border: unset;
+          border-bottom: 3px solid $honydew;
+          font-size: 3vw;
+          height: 100%;
+          padding-left: 1vw;
+          margin-top: 0;
+          margin-bottom: 0;
+          text-align: center;
+        }
+        form {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "data_input1 data_input2"
+            "submit1 submit2";
+          .data_input {
+            padding: 0.5vw 2.5vw;
+            label,
+            input,
+            select {
+              font-size: 2.5vw;
+            }
+            &:nth-of-type(1) {
+              grid-area: data_input1;
+            }
+            &:nth-of-type(2) {
+              grid-area: data_input2;
+            }
+          }
+          input[type="submit"] {
+            margin-bottom: 1vw;
+            font-size: 2.5vw;
+            padding: 0.5vw 1.5vw;
+            margin-left: 2vw;
+            margin-top: 0.5vw;
+            //width: fit-content;
+            align-self: flex-start;
+
+            &:nth-of-type(1) {
+              grid-area: submit1;
+            }
+            &:nth-of-type(2) {
+              grid-area: submit2;
+            }
+          }
+        }
+      }
+    }
+    .pop {
+      .warrning_messge {
+        h1 {
+          font-size: 2vw;
+        }
+        ul {
+          li {
+            font-size: 2vw;
+          }
+        }
+        a {
+          font-size: 2.5vw;
+          padding: 2vw;
+        }
+      }
+    }
+  }
+}
+*/

@@ -1,0 +1,242 @@
+@import "utilities/variables.scss";
+main {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+section {
+  display: flex;
+  flex-direction: row;
+  .left,
+  .right {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .left {
+    width: 30vw;
+    background-color: white;
+    justify-content: center;
+    h1,
+    h2 {
+      color: $darkgreen;
+      font-family: $font1;
+      font-weight: 500;
+      padding: 1vw;
+      box-sizing: border-box;
+      width: 90%;
+      margin: 0;
+    }
+    h1 {
+      font-size: 1.3vw;
+      margin-bottom: 0;
+
+      //word-break: break-all;
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 2vw;
+    }
+  }
+  .right {
+    background-color: $darkgreen;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    .panel {
+      // border: 2px solid red;
+      background-color: darken($darkgreen, 5);
+      width: 80%;
+      min-height: 50vh;
+      padding: 1vw;
+      box-sizing: border-box;
+      form {
+        // border: 2px solid red;
+        padding: 1.5vw;
+        box-sizing: border-box;
+        .error {
+          color: darken(red, 5);
+          font-family: $font2;
+          font-size: 1.2vw;
+        }
+        .row {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          position: relative;
+          //   border: 2px solid red;
+
+          label {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+
+            //font-weight: 200;
+            color: white;
+
+            span {
+              //   border: 1px solid red;
+              padding: 0.5vw 1vw;
+              box-sizing: border-box;
+              &:nth-of-type(1) {
+                font-size: 2.1vw;
+              }
+              &:nth-of-type(2) {
+                font-family: $font2;
+                font-size: 1.45vw;
+                //margin-left: 0.2vw;
+              }
+            }
+          }
+          input {
+            border: 0;
+            outline: unset;
+
+            &[type="text"],
+            &[type="password"] {
+              padding: 0.5vw 1vw;
+              box-sizing: border-box;
+              background-color: $darkgreen;
+              margin-left: 1vw;
+              margin-bottom: 1.5vw;
+              width: 100%;
+              font-size: 1.5vw;
+              color: white;
+            }
+          }
+          #show_hide_pass {
+            // border: 2px solid red;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 2.5vw;
+            color: white;
+            font-weight: 300;
+            cursor: pointer;
+          }
+          &:last-of-type {
+            justify-content: space-between;
+          }
+
+          #submit_btn {
+            // border: 2px solid red;
+            margin-left: 1vw;
+            background-color: white;
+            //min-width: 200px;
+            width: fit-content;
+
+            display: grid;
+            grid-template-columns: 1fr 0.5fr;
+
+            &:hover {
+              background-color: $green;
+              input,
+              button {
+                color: white;
+              }
+            }
+            input,
+            button {
+              cursor: pointer;
+              font-size: 1.5vw;
+              padding: 0.5vw;
+              color: $darkgreen;
+              box-sizing: border-box;
+              background-color: transparent;
+            }
+            input {
+              text-transform: uppercase;
+              font-family: $font2;
+            }
+            button {
+              border: 0;
+              outline: unset;
+            }
+          }
+          #forget_pass_btn {
+            background-color: gold;
+            color: $black;
+            margin-right: 1vw;
+            font-size: 1.5vw;
+            font-family: $font2;
+            padding: 0.5vw;
+            box-sizing: border-box;
+            cursor: pointer;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+/*
+@media only screen and (max-width: 750px) {
+  section {
+    flex-direction: column;
+    .left,
+    .right {
+      height: fit-content;
+      width: 100%;
+    }
+    .left {
+      min-height: 10vh;
+      h1 {
+        font-size: 2.5vw;
+      }
+      h2 {
+        font-size: 3vw;
+      }
+    }
+    .right {
+      min-height: 90vh;
+      justify-content: flex-start;
+      .panel {
+        min-height: unset;
+        margin-top: 5vh;
+        padding: 3vw;
+        form {
+          .error {
+            font-size: 3vw;
+          }
+          .row {
+            label {
+              span {
+                &:nth-of-type(1) {
+                  font-size: 4vw;
+                }
+                &:nth-of-type(2) {
+                  font-size: 3vw;
+                }
+              }
+            }
+            input {
+              &[type="text"],
+              &[type="password"] {
+                font-size: 3vw;
+                margin-bottom: 3vw;
+              }
+            }
+            #show_hide_pass {
+              font-size: 5vw;
+            }
+            #submit_btn {
+              margin-top: 5vw;
+              input,
+              button {
+                font-size: 3vw;
+                padding: 1vw;
+              }
+            }
+            #forget_pass_btn {
+              margin-top: 5vw;
+
+              font-size: 3vw;
+              padding: 1vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/

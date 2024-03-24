@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 1vw;
+      }
+      .column {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        background-color: lightgray;
+        padding: 1vw;
+        box-sizing: border-box;
+      }
+      label,
+      input {
+        font-size: 1vw;
+      }
+      label {
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+      }
+      input {
+        margin-bottom: 1vw;
+        padding: 1vw;
+        box-sizing: border-box;
+      }
+      button {
+        width: fit-content;
+        font-size: 1vw;
+        padding: 0.5vw;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+      .box {
+        width: 500px;
+        padding: 1vw;
+        box-sizing: border-box;
+        background-color: rgb(4, 65, 65);
+        color: white;
+      }
+    </style>
+    <script>
+      function fill_data(input_id, output_id) {
+        console.log([input_id, output_id]);
+        let input_value = document.getElementById(input_id).value;
+        let output_ele = document.getElementById(output_id);
+        output_ele.innerText = input_value;
+
+        //ele.innerText = putput_value;
+      }
+    </script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="row">
+      <div class="box">
+        <p id="output_date"></p>
+        <h1 id="output_name"></h1>
+        <p id="output_number"></p>
+      </div>
+      <div class="column">
+        <label for="">Start Date</label>
+        <input
+          type="date"
+          id="date1"
+          oninput="fill_data('date1','output_date')"
+        />
+
+        <label for="">End Date</label>
+        <input type="date" id="date2" />
+
+        <label for="">Name</label>
+        <input
+          type="text"
+          id="fullname"
+          oninput="fill_data('fullname','output_name')"
+        />
+
+        <label for="">Money</label>
+        <input
+          type="number"
+          id="money"
+          oninput="fill_data('money','output_number')"
+        />
+
+        <button onclick="printData()">print</button>
+      </div>
+    </div>
+    <div id="data_output"></div>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+    <script>
+      async function printData() {
+        let data_list = await getDates();
+        // console.log(data_list);
+        let formatedText = await formatData(data_list);
+
+        //console.log(formatedText);
+        //await window.print()
+        //printPromise();
+
+        //          style: cssRule,
+      }
+
+      async function getDates() {
+        let data_list = [];
+        //unchanging data start
+        let fullname = document.getElementById("fullname").value;
+        let money = document.getElementById("money").value;
+        //unchanging data end
+
+        let startDate = new Date(document.getElementById("date1").value);
+        let endDate = new Date(document.getElementById("date2").value);
+        let data_json = {};
+        counter = 1;
+
+        while (startDate <= endDate) {
+          const options = { month: "2-digit", day: "2-digit", year: "numeric" };
+
+          data_json.date = new Date(startDate).toLocaleDateString(
+            "en-US",
+            options
+          );
+          data_json.fullname = fullname;
+          data_json.money = money;
+
+          data_list.push(data_json);
+          data_json = {};
+          startDate.setMonth(startDate.getMonth() + 1);
+        }
+        //  console.log("Data");
+
+        return data_list;
+        // return [];
+      }
+
+      async function formatData(data_list) {
+        let formated_list = "";
+        data_list.forEach((card) => {
+          formated_list += "<div class='card'>";
+          formated_list += "<h3>Date: " + card["date"] + "</h3>";
+          formated_list += "<p>Full Name: " + card["fullname"] + "</p>";
+          formated_list += "<p>Money: " + card["money"] + "</p>";
+          formated_list += "</div>";
+        });
+        return formated_list;
+      }
+    </script>
+  </body>
+</html>

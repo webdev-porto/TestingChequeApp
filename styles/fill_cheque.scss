@@ -1,0 +1,461 @@
+@import "utilities/variables.scss";
+
+button {
+  cursor: pointer;
+}
+main {
+  position: relative;
+  //border: 2px solid blue;
+}
+section {
+  &:nth-of-type(1) {
+    //  border: 2px solid red;
+
+    .right {
+      grid-area: side2;
+      display: flex;
+      flex-direction: column;
+      h1,
+      h2 {
+        // margin-left: 0.5vw;
+        padding: 1vw 2vw;
+        box-sizing: border-box;
+        font-family: $font1;
+        color: $honydew;
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 2vw;
+        margin-bottom: 0vw;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1.5vw;
+        margin-top: 0;
+        border-bottom: 3px solid $honydew;
+      }
+
+      form {
+        //  border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        .error,
+        .msg {
+          font-family: $font2;
+          padding: 0 1vw;
+          box-sizing: border-box;
+        }
+        .error {
+          color: lighten($red, 15);
+          text-transform: uppercase;
+          width: 100%;
+        }
+        .msg {
+          color: lighten($green, 10);
+        }
+        #chosen_image_id {
+          display: none;
+        }
+        .row {
+          // border: 2px solid red;
+          display: grid;
+          grid-template-columns: auto 1fr;
+          width: 100%;
+        }
+        .data_input {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // border: 2px solid blue;
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          .fontControl {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: $black;
+            padding: 0.3vw;
+            font-size: 1.5vw;
+            width: 2vw;
+            height: 2vw;
+            box-sizing: border-box;
+            color: white;
+            margin-left: 0.5vw;
+            margin-right: 0.5vw;
+            &:hover {
+              background-color: $green;
+            }
+          }
+          label,
+          input,
+          select {
+            font-family: $font2;
+            font-size: 1.2vw;
+          }
+          label {
+            margin-top: 0.5vw;
+            margin-bottom: 0.3vw;
+            width: fit-content;
+            color: $honydew;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+
+            button {
+              &:nth-of-type(1) {
+                margin-left: 0;
+              }
+            }
+          }
+          select,
+          input {
+            width: 100%;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+          }
+        }
+
+        input[type="submit"] {
+          background-color: lighten($darkgreen, 25);
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          margin-left: 1vw;
+          width: fit-content;
+          margin-top: 1vw;
+          cursor: pointer;
+          font-family: $font2;
+          font-size: 1.2vw;
+          color: darken($darkgreen, 5);
+          text-transform: uppercase;
+          &:hover {
+            background-color: $green;
+            color: white;
+          }
+        }
+      }
+    }
+
+    /******************
+    Start
+    ******************/
+
+    /*Cheque Output and Image*/
+
+    .panel {
+      grid-area: cheque;
+      min-height: 120vh;
+      //  border: 2px solid green;
+      background-color: $honydew;
+      grid-area: cheque;
+      //border: 4px solid red;
+      width: 100%;
+      height: fit-content;
+      //margin-left: 3%;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-items: center;
+      #top_controls,
+      #data_output,
+      #bottom_controls {
+        margin: 1vw 0 1vw 3vw;
+      }
+      #top_controls {
+        display: grid;
+        grid-template-columns: auto 0.8fr auto;
+        align-items: center;
+        width: 90%;
+        height: fit-content;
+
+        // border: 2px solid blue;
+        padding: 0.5vw;
+        box-sizing: border-box;
+        h1 {
+          font-family: $font1;
+          font-weight: 300;
+          font-size: 2.5vw;
+          color: $darkgreen;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          // border: 1px solid red;
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+        select {
+          padding: 0.5vw;
+          box-sizing: border-box;
+          font-size: 1.5vw;
+          font-family: $font2;
+          height: fit-content;
+          background-color: $darkgreen;
+          color: $honydew;
+          border: 0;
+          outline: unset;
+          cursor: pointer;
+          // border-radius: 10px;
+        }
+      }
+      #data_output {
+        //  border: 2px solid blue;
+
+        width: 20cm;
+        height: 7cm;
+        margin-top: 0;
+        position: relative;
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        align-content: flex-start;
+        //  transform: rotate(90deg);
+
+        .warapper_data_cell {
+          //border: 2px solid red;
+          width: 20cm;
+          height: 7cm;
+          z-index: 8;
+          font-size: 18px; //all children em
+          position: relative;
+        }
+        .data_cell {
+          //border: 2px solid blue;
+
+          width: fit-content;
+          font-family: $font2;
+          margin: 0;
+          font-size: 1em;
+          position: absolute;
+          font-family: sans-serif;
+          overflow: hidden;
+          z-index: 20;
+          &:nth-of-type(1) {
+            //transform: translate(24vw, 4.8vh);
+            transform: translate(31em, 2.8em);
+          }
+          &:nth-of-type(2) {
+            //  transform: translate(6vw, 6.5vh);
+            transform: translate(5.5em, 5em);
+          }
+          &:nth-of-type(3) {
+            // transform: translate(31vw, 12vh);
+            //width: 100px;
+            transform: translate(31em, 7.6em);
+          }
+          &:nth-of-type(4) {
+            //  border: 2px solid red;
+            //            transform: translate(4vw, 16vh);
+            width: 22em;
+            transform: translate(4em, 7em);
+          }
+          &:nth-of-type(5) {
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            // transform: translate(0, 5vh) rotate(-30deg);
+            transform: translate(0, 2.2em) rotate(-30deg);
+          }
+        }
+        img {
+          width: 100%;
+          //  height: 100%;
+          position: absolute;
+          object-fit: fill;
+          z-index: 7;
+        }
+      }
+
+      #bottom_controls {
+        padding: 0.5vw;
+        box-sizing: border-box;
+        // border: 2px solid blue;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0;
+        button {
+          padding: 0.5vw 2vw;
+          border: 0;
+          outline: unset;
+          font-family: $font2;
+          font-size: 1.5vw;
+          box-shadow: 0 0 2px $black;
+        }
+        #reset_data {
+          background-color: $red;
+          color: $honydew;
+        }
+        #print_cheque {
+          background-color: $green;
+          color: $honydew;
+        }
+      }
+    }
+  }
+}
+/*
+@media only screen and (max-width: 750px) {
+  section {
+    &:nth-of-type(1) {
+      width: 100%;
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "side2"
+        "cheque"
+        "cheque"
+        "cheque";
+      .right {
+        h1 {
+          font-size: 3vw;
+        }
+        h2 {
+          font-size: 2.5vw;
+        }
+        form {
+          display: grid;
+          grid-template-areas:
+            "a1 a2"
+            "a3 a4"
+            "a5 a5"
+            "a6 a6"
+            "a7 a7"
+            "e1 e1"
+            "m1 m1";
+          grid-template-columns: 1fr 1fr;
+          .data_input {
+            padding: 0.5vw 2.5vw;
+
+            label,
+            input,
+            select {
+              font-size: 2.5vw;
+            }
+            label {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              .fontControl {
+                padding: 1.2vw;
+
+                font-size: 2.5vw;
+              }
+            }
+            &:nth-of-type(1) {
+              grid-area: a1;
+            }
+
+            &:nth-of-type(2) {
+              grid-area: a2;
+            }
+            &:nth-of-type(3) {
+              grid-area: a3;
+            }
+            &:nth-of-type(4) {
+              grid-area: a4;
+            }
+            &:nth-of-type(5) {
+              grid-area: a5;
+            }
+            &:nth-of-type(6) {
+              grid-area: a6;
+            }
+          }
+          input[type="submit"] {
+            grid-area: a7;
+            font-size: 2.5vw;
+            padding: 0.5vw 1.5vw;
+            margin-left: 2vw;
+            margin-top: 1vw;
+            margin-bottom: 1vw;
+          }
+          .error,
+          .msg {
+            width: 98%;
+            font-family: $font2;
+            padding: 0.5vw 1.5vw;
+            box-sizing: border-box;
+            font-size: 2.8vw;
+            // border: 2px solid red;
+            margin-left: 2vw;
+            margin-bottom: 1vw;
+          }
+          .error {
+            margin-top: 1vw;
+
+            grid-area: e1;
+          }
+          .msg {
+            grid-area: m1;
+          }
+        }
+      }
+      .panel {
+        // display: none;
+        display: flex;
+        flex-direction: column;
+
+        #top_controls,
+        #data_output,
+        #bottom_controls {
+          width: 98%;
+          //  border: 2px solid red;
+          margin: 1vw auto 1vw auto;
+        }
+        #top_controls {
+          h1 {
+            font-size: 2.8vw;
+          }
+          select {
+            font-size: 2.5vw;
+          }
+        }
+        #data_output {
+          // border: 2px solid red;
+          .warapper_data_cell {
+            // display: none;
+            width: 100%;
+          }
+          .data_cell {
+            //  border: 2px solid blue;
+            height: fit-content;
+            font-size: 2vw;
+
+            &:nth-of-type(1) {
+              //  border: 2px solid red;
+              transform: translate(73vw, 6.5vh);
+            }
+            &:nth-of-type(2) {
+              //  border: 2px solid blue;
+
+              transform: translate(16vw, 12.8vh);
+            }
+
+            &:nth-of-type(3) {
+              // border: 2px solid red;
+              transform: translate(73vw, 18.8vh);
+            }
+
+            &:nth-of-type(4) {
+              // border: 2px solid red;
+              transform: translate(9vw, 19vh);
+            }
+            &:nth-of-type(5) {
+              transform: translate(0, 5vw) rotate(-30deg);
+            }
+          }
+          img {
+            width: 100%;
+          }
+        }
+        #bottom_controls {
+          button {
+            padding: 0.5vw 2vw;
+
+            font-size: 2.5vw;
+          }
+        }
+      }
+    }
+  }
+}
+*/

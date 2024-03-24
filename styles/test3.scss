@@ -1,0 +1,198 @@
+@import "utilities/variables.scss";
+
+button {
+  cursor: pointer;
+}
+main {
+  position: relative;
+}
+section {
+  &:nth-of-type(1) {
+    //  border: 2px solid red;
+
+    .right {
+      grid-area: side2;
+      display: flex;
+      flex-direction: column;
+      h1,
+      h2 {
+        // margin-left: 0.5vw;
+        padding: 1vw 2vw;
+        box-sizing: border-box;
+        font-family: $font1;
+        color: $honydew;
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 2vw;
+        margin-bottom: 0vw;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1.5vw;
+        margin-top: 0;
+        border-bottom: 3px solid $honydew;
+      }
+
+      form {
+        //  border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        .error,
+        .msg {
+          font-family: $font2;
+          padding: 0 1vw;
+          box-sizing: border-box;
+        }
+        .error {
+          color: lighten($red, 15);
+          text-transform: uppercase;
+          width: 100%;
+        }
+        .msg {
+          color: lighten($green, 10);
+        }
+        #chosen_image_id {
+          display: none;
+        }
+        .data_input {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // border: 2px solid blue;
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          .row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+          }
+          label,
+          input,
+          select {
+            font-family: $font2;
+            font-size: 1.2vw;
+          }
+          label {
+            margin-top: 0.5vw;
+            margin-bottom: 0.3vw;
+            width: fit-content;
+            color: $honydew;
+          }
+          select,
+          input {
+            width: 96%;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+          }
+        }
+
+        input[type="submit"],
+        #reset {
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          margin-left: 1vw;
+          width: 90%;
+          margin-top: 1vw;
+          cursor: pointer;
+          font-family: $font2;
+          font-size: 1.2vw;
+          text-transform: uppercase;
+        }
+        input[type="submit"] {
+          background-color: lighten($darkgreen, 25);
+
+          color: darken($darkgreen, 5);
+          &:hover {
+            background-color: $green;
+            color: white;
+          }
+        }
+        #reset {
+          background-color: yellow;
+          color: black;
+          border: 0;
+          outline: unset;
+          &:hover {
+            background-color: darken(yellow, 10);
+          }
+        }
+      }
+    }
+
+    /******************
+    Start
+    ******************/
+
+    /*Cheque Output and Image*/
+
+    .panel {
+      width: 100%;
+      min-height: 100vh;
+      border: 2px solid green;
+      background-color: $honydew;
+      grid-area: cheque;
+      //border: 4px solid red;
+      width: 100%;
+      height: fit-content;
+      //margin-left: 3%;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      justify-items: center;
+
+      #top_controls,
+      #data_output {
+        margin: 1vw 0 1vw 1vw;
+      }
+
+      #data_output {
+        border: 2px solid blue;
+        width: 16.5cm;
+        height: 7cm;
+        margin-top: 0;
+        position: relative;
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        align-content: flex-start;
+
+        .data_cell {
+          // border: 2px solid red;
+          width: fit-content;
+          font-size: 16px;
+          font-family: $font2;
+          margin: 0;
+          position: absolute;
+          &:nth-of-type(1) {
+            transform: translate(38vw, 5.5vh);
+          }
+          &:nth-of-type(2) {
+            transform: translate(8vw, 10.5vh);
+          }
+          &:nth-of-type(3) {
+            transform: translate(38vw, 19vh);
+          }
+          &:nth-of-type(4) {
+            transform: translate(6vw, 19vh);
+          }
+        }
+        /**/
+        img {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          object-fit: fill;
+          //display: none;
+        }
+      }
+      #warapper_data_cell {
+        border: 2px solid green;
+        position: relative;
+        width: 16.5cm;
+        height: 7cm;
+      }
+    }
+  }
+}

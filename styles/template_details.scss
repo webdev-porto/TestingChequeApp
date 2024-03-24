@@ -1,0 +1,338 @@
+@import "utilities/variables.scss";
+
+button {
+  cursor: pointer;
+}
+main {
+  position: relative;
+}
+section {
+  &:nth-of-type(1) {
+    //  border: 2px solid red;
+
+    .right {
+      grid-area: side2;
+      display: flex;
+      flex-direction: column;
+      h1,
+      h2 {
+        // margin-left: 0.5vw;
+        padding: 1vw 2vw;
+        box-sizing: border-box;
+        font-family: $font1;
+        color: $honydew;
+        font-weight: 300;
+      }
+      h1 {
+        font-size: 2vw;
+        margin-bottom: 0vw;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 1.5vw;
+        margin-top: 0;
+        border-bottom: 3px solid $honydew;
+      }
+
+      form {
+        //  border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        .error,
+        .msg {
+          font-family: $font2;
+          padding: 0 1vw;
+          box-sizing: border-box;
+        }
+        .error {
+          color: lighten($red, 15);
+          text-transform: uppercase;
+          width: 100%;
+        }
+        .msg {
+          color: lighten($green, 10);
+        }
+        #chosen_image_id {
+          display: none;
+        }
+        .data_input {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          // border: 2px solid blue;
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          .row {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            width: 100%;
+          }
+          label,
+          input,
+          select {
+            font-family: $font2;
+            font-size: 1.2vw;
+          }
+          label {
+            margin-top: 0.5vw;
+            margin-bottom: 0.3vw;
+            width: fit-content;
+            color: $honydew;
+          }
+          select,
+          input {
+            width: 96%;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+          }
+        }
+
+        input[type="submit"],
+        #reset {
+          padding: 0.5vw 1vw;
+          box-sizing: border-box;
+          margin-left: 1vw;
+          width: 90%;
+          margin-top: 1vw;
+          cursor: pointer;
+          font-family: $font2;
+          font-size: 1.2vw;
+          text-transform: uppercase;
+        }
+        input[type="submit"] {
+          background-color: lighten($darkgreen, 25);
+
+          color: darken($darkgreen, 5);
+          &:hover {
+            background-color: $green;
+            color: white;
+          }
+        }
+        #reset {
+          background-color: yellow;
+          color: black;
+          border: 0;
+          outline: unset;
+          &:hover {
+            background-color: darken(yellow, 10);
+          }
+        }
+      }
+    }
+
+    /******************
+    Start
+    ******************/
+
+    /*Cheque Output and Image*/
+
+    .panel {
+      width: 100%;
+      min-height: 100vh;
+      border: 2px solid green;
+      background-color: $honydew;
+      grid-area: cheque;
+      //border: 4px solid red;
+      width: 100%;
+      height: fit-content;
+      //margin-left: 3%;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: flex-start;
+      justify-items: flex-end;
+      #top_controls,
+      #data_output {
+        margin: 1vw 0 1vw 1vw;
+      }
+      #top_controls {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+        width: 90%;
+        height: fit-content;
+
+        // border: 2px solid blue;
+        padding: 0.5vw;
+        box-sizing: border-box;
+        h1 {
+          font-family: $font1;
+          font-weight: 300;
+          font-size: 2.5vw;
+          color: $darkgreen;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          //border: 1px solid red;
+          margin-bottom: 0;
+          margin-top: 0;
+        }
+        select {
+          padding: 0.5vw;
+          box-sizing: border-box;
+          font-size: 1.5vw;
+          font-family: $font2;
+          height: fit-content;
+          background-color: $darkgreen;
+          color: $honydew;
+          border: 0;
+          outline: unset;
+          cursor: pointer;
+          // border-radius: 10px;
+        }
+      }
+      #add_cheque {
+        width: 96%;
+        padding: 1vw;
+        box-sizing: border-box;
+        // border: 2px solid red;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 1vw;
+        .error,
+        .msg {
+          font-family: $font2;
+          padding: 0 1vw;
+          font-size: 1.5vw;
+          box-sizing: border-box;
+        }
+        .error {
+          color: lighten($red, 15);
+          text-transform: uppercase;
+          width: 100%;
+        }
+        .msg {
+          color: $green;
+          width: 100%;
+        }
+
+        form {
+          width: 90%;
+          input {
+            font-size: 1.2vw;
+            font-family: $font2;
+            padding: 0.5vw 1vw;
+            box-sizing: border-box;
+            &[type="file"] {
+              padding: 0.45vw 1vw;
+
+              width: 80%;
+              border: 2px solid $darkgreen;
+              color: lighten($darkgreen, 10);
+              // color: transparent;
+            }
+            &[type="submit"] {
+              background-color: lighten($darkgreen, 10);
+              border: 2px solid lighten($darkgreen, 10);
+
+              color: $honydew;
+              cursor: pointer;
+              &:hover {
+                background-color: $green;
+                border: 2px solid $green;
+              }
+            }
+          }
+        }
+      }
+      #data_output {
+        // border: 2px solid blue;
+        width: 80%;
+        display: grid;
+        margin-top: 0;
+        padding: 1vw;
+        box-sizing: border-box;
+
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1vw;
+        min-height: 70vh;
+        margin-right: 3.5vw;
+        height: fit-content;
+        align-content: flex-start;
+        //  transform: rotate(90deg);
+        .item {
+          width: 100%;
+          margin-left: auto;
+          margin-right: auto;
+          height: fit-content;
+          border-radius: 5px;
+          //  border: 2px solid red;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          position: relative;
+          background-color: $darkgreen;
+          a {
+            text-decoration: none;
+            padding: 0.2vw;
+            box-sizing: border-box;
+            width: fit-content;
+            height: fit-content;
+            color: $honydew;
+            margin: 0.3vw;
+            background-color: $red;
+            position: absolute;
+            top: 0;
+            right: 0;
+            span {
+              font-size: 1.4vw;
+            }
+            :hover {
+              background-color: lighten($red, 10);
+            }
+          }
+          .template_date {
+            width: fit-content;
+            color: white;
+            //  border: 2px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba($darkgreen, $alpha: 0.7);
+            padding: 0.3vw;
+            box-sizing: border-box;
+            //margin: 0.5vw;
+          }
+        }
+
+        img {
+          width: 100%;
+          //height: 100%;
+          padding: 0.2vw;
+          border-radius: 5px;
+          box-sizing: border-box;
+          object-fit: fill;
+          //display: none;
+        }
+      }
+
+      #bottom_controls {
+        padding: 0.5vw;
+        box-sizing: border-box;
+        // border: 2px solid blue;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0;
+        button {
+          padding: 0.5vw 2vw;
+          border: 0;
+          outline: unset;
+          font-family: $font2;
+          font-size: 1.5vw;
+          box-shadow: 0 0 2px $black;
+        }
+        #reset_data {
+          background-color: $red;
+          color: $honydew;
+        }
+        #print_cheque {
+          background-color: $green;
+          color: $honydew;
+        }
+      }
+    }
+  }
+}

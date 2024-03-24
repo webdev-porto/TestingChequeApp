@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <button onclick="start_run()">Click</button>
+    <script>
+      $(document).ready(function () {
+        // Function to handle logout
+        function logoutUser() {
+          $.ajax({
+            url: "logout.php", // URL to your logout script
+            method: "POST",
+            success: function (response) {
+              console.log("User logged out successfully.");
+            },
+            error: function (xhr, status, error) {
+              console.error("Error logging out:", error);
+            },
+          });
+        }
+
+        // Attach unload event handler
+        $(window).bind("beforeunload", function () {
+          logoutUser();
+        });
+      });
+    </script>
+    <!--<script type="text/javascript">
+      window.addEventListener("beforeunload", function (e) {
+        // Most browsers will ignore the message you return here
+        e.preventDefault();
+        e.returnValue = ""; // Required for Chrome
+      });
+    </script>-->
+
+    <!--
+    <script>
+      async function start_run() {
+        await stage1();
+        // await stage2();
+      }
+      async function stage1() {
+        return new Promise(async (resolve, reject) => {
+          let letters = ["A", "B", "C"];
+
+          for (const letter of letters) {
+            console.log("run 1");
+
+            await stage2(letter);
+          }
+          resolve();
+        });
+      }
+      async function stage2(letter) {
+        return new Promise((resolve, reject) => {
+          console.log("run 2 - " + letter);
+          resolve();
+        });
+      }
+    </script>-->
+  </body>
+</html>

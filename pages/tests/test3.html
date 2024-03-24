@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles/icons/icofont.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Protest+Strike&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/top_menu.css" />
+
+    <link rel="stylesheet" href="../styles/side_menu.css" />
+    <link rel="stylesheet" href="../styles/test3.css" />
+
+    <style></style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1>PTS Cheque App</h1>
+
+        <a href="#" id="lang_change"> AR </a>
+      </nav>
+      <nav>
+        <button>
+          <span class="icofont-navigation-menu"></span>
+        </button>
+
+        <a href="manage_cheques.php" id="logo">
+          <span> Clinet Name </span>
+        </a>
+        <button class="user_controls_btn" onclick="open_profile_pop()">
+          <span class="icofont-business-man" id="user_prof"></span>
+        </button>
+      </nav>
+      <nav id="profile_pop_up">
+        <button id="close_profile_btn">
+          <span class="icofont-ui-close" onclick="close_profile_pop()"></span>
+        </button>
+        <a href="#">
+          <span class="icofont-business-man"></span>
+          <span>COMING SOON A</span>
+        </a>
+        <a href="#">
+          <span class="icofont-business-man"></span>
+
+          <span>COMING SOON B</span>
+        </a>
+        <a href="logout.php">
+          <span class="icofont-power"></span>
+
+          <span>Logout</span>
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <aside class="left">
+          <button id="menu_arrow" onclick="switch_menu()">
+            <span class="icofont-arrow-right"></span>
+          </button>
+          <div class="items">
+            <a href="manage_cheques.php" class="item">
+              <div class="sidemenu_icon icofont-files-stack"></div>
+              <div class="text">Manage Cheques</div>
+            </a>
+            <a href="manage_banks.php" class="item">
+              <div class="sidemenu_icon icofont-bank"></div>
+              <div class="text">Saved Bank List</div>
+            </a>
+            <a href="fill_cheque.php" class="item">
+              <div class="sidemenu_icon icofont-card"></div>
+              <div class="text">Fill New Cheque</div>
+            </a>
+            <!--
+                      <a href="#" class="item">
+                          <div class="sidemenu_icon icofont-folder"></div>
+                          <div class="text">Saved Cheques</div>
+                      </a>-->
+            <a href="logout.php" class="item" id="logout_btn">
+              <div class="sidemenu_icon icofont-power"></div>
+              <div class="text">Logouts</div>
+            </a>
+          </div>
+        </aside>
+        <div class="panel">
+          <div id="data_output">
+            <img
+              id="cheque_image_src"
+              src="../images/ahli_bank/enhanced/template1.png"
+              alt=""
+            />
+            <div class="warapper_data_cell" id="warapper_data_cell">
+              <div id="output_cheque_date" class="data_cell">22-10-2024</div>
+              <div id="output_the_recipent_name" class="data_cell">
+                Ahmed Mahmoud Hamdy
+              </div>
+              <div id="output_the_amount_numbers" class="data_cell">
+                ##3000##
+              </div>
+              <div id="output_the_amount_words" class="data_cell">
+                Three Thousand Five Hundred
+              </div>
+            </div>
+          </div>
+
+          <button onclick="printCheque()">Print</button>
+        </div>
+
+        <aside class="right">
+          <h1 id="title2">-</h1>
+          <h2>Fill The Data Bellow</h2>
+
+          <form id="cheque_data_form" action="" method="POST">
+            <div class="data_input">
+              <label for="input_cheque_date">Template Upload Date</label>
+              <input
+                type="date"
+                id="input_cheque_date"
+                name="input_cheque_date"
+              />
+            </div>
+
+            <input type="submit" value="Search" name="search_template" />
+            <input
+              type="submit"
+              value="Reset Search"
+              name="reset_search"
+              id="reset"
+            />
+            <span class="msg" id="msg"></span>
+            <span class="error" id="right_error"></span>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script>
+      Draggable.create(".data_cell", {
+        bounds: document.getElementById("data_output"),
+        onDragEnd: function () {
+          getPosDimension();
+        },
+      });
+
+      function printCheque() {
+        let cells = document.querySelectorAll(".data_cell");
+        let data = {
+          date: [],
+          rname: [],
+          amountn: [],
+          amountw: [],
+        };
+        data.date = [
+          cells[0].getBoundingClientRect().x,
+          cells[0].getBoundingClientRect().y,
+        ];
+
+        data.rname = [
+          cells[1].getBoundingClientRect().x,
+          cells[1].getBoundingClientRect().y,
+        ];
+        data.amountn = [
+          cells[2].getBoundingClientRect().x,
+          cells[2].getBoundingClientRect().y,
+        ];
+        data.amountw = [
+          cells[3].getBoundingClientRect().x,
+          cells[3].getBoundingClientRect().y,
+        ];
+        /*
+        data.amountw = [
+          cells[3].clientY - cells[3].getBoundingClientRect().top,
+          cells[3].getBoundingClientRect().right,
+          cells[3].getBoundingClientRect().bottom,
+          cells[3].clientX - cells[3].getBoundingClientRect().left,
+        ];*/
+        let cssRule = setCSS(data);
+
+        printJS({
+          printable: "warapper_data_cell",
+          type: "html",
+          style: cssRule,
+        });
+      }
+
+      function getPosDimension() {
+        let cells = document.querySelectorAll(".data_cell");
+
+        console.log("=============DATE===============");
+        console.log(cells[0].getBoundingClientRect().x);
+        console.log(cells[0].getBoundingClientRect().y);
+
+        console.log("============NAME================");
+        console.log(cells[1].getBoundingClientRect().x);
+        console.log(cells[1].getBoundingClientRect().y);
+
+        console.log("==============AMOUNT N==============");
+        console.log(cells[2].getBoundingClientRect().x);
+        console.log(cells[2].getBoundingClientRect().y);
+
+        console.log("==============AMOUNT W==============");
+        console.log(cells[3].getBoundingClientRect().x);
+        console.log(cells[3].getBoundingClientRect().y);
+      }
+
+      function setCSS(data) {
+        let conv = 0.06;
+        //console.log(data.date[0] + " SS " + data.date[1]);
+        var cssRule = `
+        @media print {
+          #warapper_data_cell{
+            margin-left:40vw;
+            margin-top:24vw;
+
+            transform:rotate(1deg);
+   
+            width: 16.5cm;
+            height: 7cm;
+
+          }
+          .data_cell{
+            margin:0;
+            -webkit-transform: none;
+              transform: none;
+              position: absolute;
+          }
+          #output_cheque_date {
+              width: fit-content;
+              transform: translate(${data.date[0]}px, ${data.date[1]}px);
+          }
+          #output_the_recipent_name {
+              width: fit-content;
+              transform: translate(${data.rname[0]}px, ${data.rname[1]}px);
+
+          }
+          #output_the_amount_numbers {
+              transform: translate(${data.amountn[0]}px, ${data.amountn[1]}px);
+
+              max-width: 8rem;
+          }
+          #output_the_amount_words {
+              max-width: 18.5rem;
+              transform: translate(${data.amountw[0]}px, ${data.amountw[1]}px);
+          }
+        }
+        `;
+
+        return cssRule;
+      }
+    </script>
+  </body>
+</html>

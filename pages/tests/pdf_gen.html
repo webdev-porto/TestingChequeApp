@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate PDF Cards using jsPDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <button onclick="startCode()">pdf</button>
+    <script>
+      // Sample data
+
+      function startCode() {
+        const data = [
+          {
+            date: "09/19/2024",
+            fullname: "Ali",
+            money: 1200,
+          },
+          {
+            date: "10/19/2024",
+            fullname: "Ali",
+            money: 1200,
+          },
+          {
+            date: "11/19/2024",
+            fullname: "Ali",
+            money: 1200,
+          },
+        ];
+        generatePDFCards(data);
+      }
+
+      // Function to generate PDF cards
+      function generatePDFCards(data) {
+        const doc = new jsPDF();
+
+        data.forEach((item, index) => {
+          // Add card content
+          const x = 10; // X position of the card
+          const y = index * 70 + 10; // Y position of the card
+          const width = 80; // Width of the card
+          const height = 50; // Height of the card
+
+          // Add rectangle as card border
+          doc.rect(x, y, width, height);
+
+          // Add text content
+          doc.text(`Date: ${item.date}`, x + 5, y + 10);
+          doc.text(`Full Name: ${item.fullname}`, x + 5, y + 20);
+          doc.text(`Money: $${item.money}`, x + 5, y + 30);
+
+          // Add page if needed
+          if (index < data.length - 1) {
+            doc.addPage();
+          }
+        });
+
+        // Save the PDF
+        doc.save("cards.pdf");
+      }
+
+      // Call the function to generate PDF cards
+    </script>
+  </body>
+</html>

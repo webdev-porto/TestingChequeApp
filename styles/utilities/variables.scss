@@ -1,0 +1,23 @@
+$black: rgb(34, 9, 1);
+$red: rgb(191, 19, 99);
+$green: rgb(42, 172, 142);
+$honydew: rgb(239, 248, 226);
+$darkgreen: rgb(0, 78, 100);
+$font1: "Protest Strike", sans-serif;
+$font2: "Oswald", sans-serif;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: $honydew;
+  // border: 2px solid red;
+
+  //border: 2px solid red;
+}

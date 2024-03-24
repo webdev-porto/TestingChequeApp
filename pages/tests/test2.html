@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="displayDates()">print</button>
+    <script>
+      function getDatesBetween() {
+        let startDate = new Date("2024-03-10");
+        let endDate = new Date("2024-06-10");
+        let dates = [];
+
+        while (startDate <= endDate) {
+          const options = { month: "2-digit", day: "2-digit", year: "numeric" };
+          dates.push(new Date(startDate).toLocaleDateString("en-US", options));
+          startDate.setMonth(startDate.getMonth() + 1);
+        }
+        console.log(dates);
+
+        return dates;
+      }
+      function displayDates() {
+        let datesBetween = getDatesBetween();
+        /*
+        datesBetween.forEach((date) => {
+          console.log(date.toDateString());
+        });*/
+      }
+
+      // Example usage:
+      // let startDate = new Date("2024-01-01");
+      //let endDate = new Date("2024-12-31");
+    </script>
+  </body>
+</html>

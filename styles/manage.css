@@ -1,0 +1,490 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(239, 248, 226);
+}
+
+.error {
+  font-family: "Oswald", sans-serif;
+  color: rgb(191, 19, 99);
+  text-transform: uppercase;
+  width: 100%;
+}
+
+section:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.6fr;
+  margin-bottom: 30vh;
+  grid-template-areas: "panel panel side1" "panel panel side1" "panel panel side1" "panel panel side1";
+}
+section:nth-of-type(1) .panel {
+  grid-area: panel;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+section:nth-of-type(1) .panel #add_bank {
+  width: 96%;
+  padding: 1vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1vw;
+}
+section:nth-of-type(1) .panel #add_bank form {
+  width: 90%;
+}
+section:nth-of-type(1) .panel #add_bank form input {
+  font-size: 1.2vw;
+  font-family: "Oswald", sans-serif;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #add_bank form input[type=file] {
+  padding: 0.45vw 1vw;
+  width: 80%;
+  border: 2px solid rgb(0, 78, 100);
+  color: #007697;
+}
+section:nth-of-type(1) .panel #add_bank form input[type=submit] {
+  background-color: #007697;
+  border: 2px solid #007697;
+  color: rgb(239, 248, 226);
+  cursor: pointer;
+}
+section:nth-of-type(1) .panel #add_bank form input[type=submit]:hover {
+  background-color: rgb(42, 172, 142);
+  border: 2px solid rgb(42, 172, 142);
+}
+section:nth-of-type(1) .panel #add_bank form input {
+  font-size: 1.2vw;
+  font-family: "Oswald", sans-serif;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #add_bank form input[type=text] {
+  width: 80%;
+  border: 2px solid rgb(0, 78, 100);
+  color: #007697;
+}
+section:nth-of-type(1) .panel #data_error {
+  font-size: 1.2vw;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1vw;
+}
+section:nth-of-type(1) .panel #datagrid {
+  width: 96%;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #datagrid table {
+  border-collapse: collapse;
+  border: 2px solid rgb(0, 78, 100);
+}
+section:nth-of-type(1) .panel #datagrid table tr {
+  border: 2px solid rgb(0, 78, 100);
+}
+section:nth-of-type(1) .panel #datagrid table tr th,
+section:nth-of-type(1) .panel #datagrid table tr td {
+  text-align: right;
+  padding: 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .panel #datagrid table tr td {
+  text-align: right;
+  border: 2px solid rgb(0, 78, 100);
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+}
+section:nth-of-type(1) .panel #datagrid table tr th {
+  font-family: "Protest Strike", sans-serif;
+  font-weight: 300;
+  color: rgb(0, 78, 100);
+  font-size: 1.5vw;
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls {
+  width: 100%;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  padding: unset;
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls button,
+section:nth-of-type(1) .panel #datagrid table tr .controls a {
+  font-size: 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 1vw;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls a {
+  text-decoration: none;
+  color: rgb(239, 248, 226);
+  background-color: rgb(0, 78, 100);
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls .view,
+section:nth-of-type(1) .panel #datagrid table tr .controls .edite,
+section:nth-of-type(1) .panel #datagrid table tr .controls .delete {
+  border: 0;
+  color: rgb(239, 248, 226);
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls .edite {
+  background-color: rgb(0, 78, 100);
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls .delete {
+  background-color: rgb(191, 19, 99);
+}
+section:nth-of-type(1) .panel #datagrid table tr .controls .view {
+  background-color: rgb(34, 9, 1);
+}
+section:nth-of-type(1) .panel #datagrid table tr .file_link img {
+  width: 4vw;
+}
+section:nth-of-type(1) .right {
+  grid-area: side1;
+  display: flex;
+  flex-direction: column;
+}
+section:nth-of-type(1) .right form {
+  display: flex;
+  flex-direction: column;
+}
+section:nth-of-type(1) .right form .data_input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .right form .data_input .row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  width: 100%;
+}
+section:nth-of-type(1) .right form .data_input label,
+section:nth-of-type(1) .right form .data_input input,
+section:nth-of-type(1) .right form .data_input select {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+}
+section:nth-of-type(1) .right form .data_input label {
+  margin-top: 0.5vw;
+  margin-bottom: 0.3vw;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: rgb(239, 248, 226);
+}
+section:nth-of-type(1) .right form .data_input select,
+section:nth-of-type(1) .right form .data_input input {
+  width: 100%;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+}
+section:nth-of-type(1) .right form input[type=submit] {
+  width: 90%;
+  background-color: #00b1e4;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+  margin-left: 1vw;
+  margin-top: 1vw;
+  cursor: pointer;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+  color: #003a4b;
+  text-transform: uppercase;
+  border: 0;
+  outline: unset;
+}
+section:nth-of-type(1) .right form input[type=submit]:hover {
+  background-color: rgb(42, 172, 142);
+  color: white;
+}
+section:nth-of-type(1) .right form #reset {
+  background-color: yellow;
+  color: black;
+  border: 0;
+  outline: unset;
+}
+section:nth-of-type(1) .right form #reset:hover {
+  background-color: #cccc00;
+}
+
+.right #upload_check_btn {
+  font-family: "Oswald", sans-serif;
+  text-decoration: none;
+  background-color: rgb(239, 248, 226);
+  color: rgb(0, 78, 100);
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  margin: 1vw;
+  text-transform: uppercase;
+  font-size: 1.2vw;
+  border: 0;
+  outline: unset;
+}
+.right #upload_check_btn:hover {
+  background-color: rgb(34, 9, 1);
+  color: rgb(239, 248, 226);
+}
+.right > h1 {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 1.5vw;
+  padding: 1vw;
+  box-sizing: border-box;
+  color: rgb(239, 248, 226);
+  font-weight: 500;
+  margin-top: 0;
+  border-bottom: 3px solid rgb(239, 248, 226);
+  border-top: 3px solid rgb(239, 248, 226);
+}
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(34, 9, 1, 0.6);
+  border: 2px solid black;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+}
+.pop .warrning_messge,
+.pop .edite_messge {
+  margin-top: 2vw;
+  min-width: 30vw;
+  min-height: 30vw;
+  max-height: 80vh;
+  background-color: rgb(239, 248, 226);
+  display: flex;
+  flex-direction: column;
+}
+.pop .warrning_messge .hide,
+.pop .edite_messge .hide {
+  display: none;
+}
+.pop .warrning_messge .update_data,
+.pop .edite_messge .update_data {
+  width: 80%;
+  overflow: hidden;
+  font-family: "Oswald", sans-serif;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  background-color: rgb(0, 78, 100);
+  color: rgb(239, 248, 226);
+  font-size: 1.2vw;
+  margin: 1vw;
+  border: 0;
+  outline: unset;
+}
+.pop .warrning_messge input[type=submit],
+.pop .edite_messge input[type=submit] {
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.3vw;
+  background-color: rgb(42, 172, 142);
+  color: rgb(239, 248, 226);
+  margin: 1vw;
+  border: 0;
+  padding: 0.5vw 1vw;
+  box-sizing: border-box;
+  outline: unset;
+  cursor: pointer;
+}
+.pop .warrning_messge button,
+.pop .edite_messge button {
+  padding: 1vw;
+  box-sizing: border-box;
+  background-color: rgb(34, 9, 1);
+  color: rgb(239, 248, 226);
+  border: 0;
+  outline: unset;
+}
+.pop .warrning_messge button:hover,
+.pop .edite_messge button:hover {
+  background-color: rgb(42, 172, 142);
+}
+.pop .warrning_messge h1 {
+  font-family: "Protest Strike", sans-serif;
+  font-size: 1.3vw;
+  padding: 0.5vw;
+  box-sizing: border-box;
+  width: 90%;
+  font-weight: 500;
+  color: rgb(0, 78, 100);
+}
+.pop .warrning_messge ul {
+  list-style: square;
+}
+.pop .warrning_messge ul li {
+  padding: 0.5vw;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2vw;
+  color: rgb(191, 19, 99);
+}
+.pop .warrning_messge a {
+  text-decoration: none;
+  padding: 1vw;
+  box-sizing: border-box;
+  background-color: rgb(191, 19, 99);
+  color: rgb(239, 248, 226);
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3vw;
+}
+.pop .warrning_messge a:hover {
+  background-color: red;
+}
+
+.right #bank_row {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+/*
+@media only screen and (max-width: 750px) {
+  section {
+    &:nth-of-type(1) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "side1 side1"
+        "panel panel"
+        "panel panel"
+        "panel panel";
+
+      .panel {
+        #data_error {
+          font-size: 3vw;
+        }
+        #datagrid {
+          width: 100%;
+
+          table {
+            tr {
+              td {
+                font-size: 2.2vw;
+              }
+              th {
+                font-size: 2.5vw;
+              }
+              .controls {
+                button,
+                a {
+                  font-size: 2.5vw;
+                  padding: 1vw;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .right {
+        //border: 2px solid red;
+        display: grid;
+        grid-template-columns: 1fr;
+        h1 {
+          display: flex;
+          align-items: center;
+          border: unset;
+          border-bottom: 3px solid $honydew;
+          font-size: 3vw;
+          height: 100%;
+          padding-left: 1vw;
+          margin-top: 0;
+          margin-bottom: 0;
+          text-align: center;
+        }
+        form {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "data_input1 data_input2"
+            "submit1 submit2";
+          .data_input {
+            padding: 0.5vw 2.5vw;
+            label,
+            input,
+            select {
+              font-size: 2.5vw;
+            }
+            &:nth-of-type(1) {
+              grid-area: data_input1;
+            }
+            &:nth-of-type(2) {
+              grid-area: data_input2;
+            }
+          }
+          input[type="submit"] {
+            margin-bottom: 1vw;
+            font-size: 2.5vw;
+            padding: 0.5vw 1.5vw;
+            margin-left: 2vw;
+            margin-top: 0.5vw;
+            //width: fit-content;
+            align-self: flex-start;
+
+            &:nth-of-type(1) {
+              grid-area: submit1;
+            }
+            &:nth-of-type(2) {
+              grid-area: submit2;
+            }
+          }
+        }
+      }
+    }
+    .pop {
+      .warrning_messge {
+        h1 {
+          font-size: 2vw;
+        }
+        ul {
+          li {
+            font-size: 2vw;
+          }
+        }
+        a {
+          font-size: 2.5vw;
+          padding: 2vw;
+        }
+      }
+    }
+  }
+}
+*//*# sourceMappingURL=manage.css.map */
